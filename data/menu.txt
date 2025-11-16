@@ -1,0 +1,4 @@
+1,Tea,Veg,10,Available
+2,Coffee,Veg,15,Available
+3,Paneer Rice,Veg,60,Out of Stock
+4,Chicken Biryani,Non-Veg,80,Available
