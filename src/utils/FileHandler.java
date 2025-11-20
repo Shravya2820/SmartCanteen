@@ -1,31 +1,35 @@
 package utils;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
 public class FileHandler {
 
-    public static void writeToFile(String fileName, String data) {
-        try (FileWriter fw = new FileWriter(fileName, true)) {
-            fw.write(data + "\n");
-        } catch (IOException e) {
+    public static List<String> readLines(String path) {
+        List<String> lines = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(new FileInputStream(path), StandardCharsets.UTF_8))) {
+
+            String line;
+            while ((line = br.readLine()) != null)
+                lines.add(line);
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        return lines;
     }
 
-    public static List<String> readFile(String fileName) {
-        List<String> lines = new ArrayList<>();
+    public static void writeLines(String path, List<String> lines) {
+        try (BufferedWriter bw = new BufferedWriter(
+                new OutputStreamWriter(new FileOutputStream(path), StandardCharsets.UTF_8))) {
 
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                lines.add(line);
-            }
-        } catch (IOException e) {
+            for (String s : lines)
+                bw.write(s + System.lineSeparator());
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return lines;
     }
 }

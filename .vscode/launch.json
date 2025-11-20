@@ -3,11 +3,10 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch SmartCanteen",
+            "name": "SmartCanteen",
             "request": "launch",
             "mainClass": "Main",
-            "cwd": "${workspaceFolder}",
-            "vmArgs": "--module-path \"C:/JavaFX/javafx-sdk-23.0.1/javafx-sdk-25.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"C:/JavaFX/javafx-sdk-17/javafx-sdk-17.0.17/lib\" --add-modules javafx.controls,javafx.fxml -Dfile.encoding=UTF-8"
         }
     ]
 }
